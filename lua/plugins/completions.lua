@@ -1,0 +1,51 @@
+return {
+  {
+    "hrsh7th/cmp-nvim-lsp",
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = {
+      "saadparwaiz1/cmp_luasnip",
+      "rafamadriz/friendly-snippets",
+    },
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {                   -- nvim-cmp に必要な依存プラグイン
+      { "hrsh7th/cmp-buffer" },        -- 現在のバッファの内容を補完候補に含める
+      { "saadparwaiz1/cmp_luasnip" },  -- LuaSnip と nvim-cmp を統合
+      { "L3MON4D3/LuaSnip" },          -- スニペットエンジン LuaSnip
+      { "rafamadriz/friendly-snippets" }, -- 事前定義されたスニペットコレクション
+    },
+    config = function()
+      local luasnip = require("luasnip")
+      local cmp = require("cmp")
+      require("luasnip.loaders.from_vscode").lazy_load()
+      cmp.setup({
+        snippet = {
+          expand = function(args)
+            require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+          end,
+        },
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
+        },
+        mapping = cmp.mapping.preset.insert({
+          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-f>"] = cmp.mapping.scroll_docs(4),
+          ["<C-Space>"] = cmp.mapping.complete(),
+          ["<C-e>"] = cmp.mapping.abort(),
+          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        }),
+        sources = cmp.config.sources({
+          { name = "nvim_lsp" },
+          { name = "path" },
+          { name = "luasnip", priority_weight = 20 }, -- For luasnip users.
+        }, {
+          { name = "buffer" },
+        }),
+      })
+    end,
+  },
+}
