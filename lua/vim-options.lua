@@ -19,7 +19,8 @@ vim.opt.smartcase = true
 vim.opt.wrapscan = true
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
-vim.keymap.set("n", "<leader>n", ":nohlsearch <CR>")
+vim.opt.path:append({"**"})
+vim.keymap.set("n", "<leader>/", ":nohlsearch <CR>")
 -- Navigate vim panes better
 vim.keymap.set("n", "<C-k>", ":wincmd k<CR>")
 vim.keymap.set("n", "<C-j>", ":wincmd j<CR>")
@@ -43,5 +44,5 @@ vim.opt.undofile = false
 -- vim.cmd("set autoindent")
 -- vim.cmd("set smartindent")
 -- vim.cmd("set number")
--- vim.cmd("inoremap jk <Esc>")
+-- vim.cmd("innoremap jk <Esc>")
 -- vim.cmd("vnoremap jk <Esc>")

@@ -33,9 +33,9 @@ return {
 			-- 	filetypes = { "vue" },
 			-- 	capabilities = capabilities,
 			-- })
-			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
-			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+			vim.keymap.set("n", "<leader>ld", vim.lsp.buf.definition, {})
+			vim.keymap.set("n", "<leader>lr", vim.lsp.buf.references, {})
+			vim.keymap.set("n", "<leader>lc", vim.lsp.buf.code_action, {})
 		end,
 	},
 }
