@@ -29,8 +29,8 @@ vim.keymap.set("n", "<C-l>", ":wincmd l<CR>")
 -- buffer
 vim.keymap.set("n", "<leader>h", "<cmd>bprev<CR>")
 vim.keymap.set("n", "<leader>l", "<cmd>bnext<CR>")
-vim.keymap.set("n", "<leader>bd", "<cmd>bd<CR>")
-vim.keymap.set("n", "<leader>be", "<cmd>%bd|e#|bd#<CR>")
+vim.keymap.set("n", "<leader>bd", "<cmd>bd!<CR>")
+vim.keymap.set("n", "<leader>be", "<cmd>%bd!|e#|bd#<CR>")
 -- file
 vim.opt.swapfile = false
 vim.opt.writebackup = false
