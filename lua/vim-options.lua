@@ -3,6 +3,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.smarttab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
@@ -20,7 +21,7 @@ vim.opt.smartcase = true
 vim.opt.wrapscan = true
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
-vim.opt.path:append({"**"})
+vim.opt.path:append({ "**" })
 vim.keymap.set("n", "<leader>/", ":nohlsearch <CR>")
 -- Navigate vim panes better
 vim.keymap.set("n", "<C-k>", ":wincmd k<CR>")
@@ -42,14 +43,7 @@ vim.cmd [[
 				highlight NonText ctermbg=none guibg=none
 ]]
 vim.o.termguicolors = true
-
--- vim.cmd("set expandtab")
--- vim.cmd("set tabstop=2")
--- vim.cmd("set softtabstop=2")
--- vim.cmd("set shiftwidth=2")
--- vim.cmd("set smarttab")
--- vim.cmd("set autoindent")
--- vim.cmd("set smartindent")
--- vim.cmd("set number")
--- vim.cmd("innoremap jk <Esc>")
--- vim.cmd("vnoremap jk <Esc>")
+-- use PowerShell as default shell
+if vim.fn.has('win64') == 1 then
+	vim.o.shell = "powershell.exe"
+end
