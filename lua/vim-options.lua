@@ -35,6 +35,12 @@ vim.keymap.set("n", "<leader>be", "<cmd>%bd!|e#|bd#<CR>")
 vim.opt.swapfile = false
 vim.opt.writebackup = false
 vim.opt.undofile = false
+-- Transparent
+vim.cmd [[
+				highlight Normal ctermbg=none guibg=none
+				highlight NonText ctermbg=none guibg=none
+]]
+vim.o.termguicolors = true
 
 -- vim.cmd("set expandtab")
 -- vim.cmd("set tabstop=2")
