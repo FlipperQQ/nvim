@@ -1,5 +1,6 @@
 vim.scriptencoding = "utf-8"
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.smarttab = true
