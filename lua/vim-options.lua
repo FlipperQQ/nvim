@@ -45,5 +45,5 @@ vim.cmd [[
 vim.o.termguicolors = true
 -- use PowerShell as default shell
 if vim.fn.has('win64') == 1 then
-	vim.o.shell = "powershell.exe"
+	vim.o.shell = "pwsh.exe"
 end
